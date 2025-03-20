@@ -1,0 +1,558 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2821
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica-Bold;\f1\fswiss\fcharset0 Helvetica;\f2\fswiss\fcharset0 Helvetica-Oblique;
+\f3\fswiss\fcharset0 Helvetica-BoldOblique;\f4\fswiss\fcharset0 Arial-ItalicMT;\f5\fswiss\fcharset0 Arial-BoldItalicMT;
+}
+{\colortbl;\red255\green255\blue255;\red253\green128\blue8;\red251\green2\blue7;\red0\green0\blue0;
+\red16\green16\blue16;\red0\green0\blue0;\red63\green105\blue30;\red205\green205\blue205;\red102\green177\blue50;
+\red23\green23\blue23;\red127\green127\blue127;}
+{\*\expandedcolortbl;;\cssrgb\c100000\c57637\c0;\cssrgb\c100000\c14913\c0;\cssrgb\c0\c0\c0;
+\cssrgb\c7451\c7451\c7451;\cssrgb\c0\c0\c0\c5098;\cssrgb\c30831\c47797\c15540;\csgray\c84070;\cssrgb\c46532\c73327\c25364;
+\cssrgb\c11765\c11765\c11765;\cssrgb\c57046\c57047\c57046;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww28480\viewh16080\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\qc\partightenfactor0
+
+\f0\b\fs180 \cf2 \
+Sistemas Operativos
+\fs80 \cf0  \
+(e n\'e3o \up2 operacionais\up0 !!!)
+\fs96 \cf2 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\qc\partightenfactor0
+
+\fs146 \cf3 \
+vers\'e3o 20250314\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\fs80 \cf0 %%%%\
+% PL%\
+%%%%\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\qc\partightenfactor0
+\cf2 NOTA1: Mudan\'e7a para o servidor com o IP: 10.1.186.79 onde dever\'e3o acabar o trab1 e fazer os restantes 5 neste novo servidor que \'e9 um Raspberry Pi 4 j\'e1 com um processador ARMv7 com 4 n\'facleos de processamento de 64bits, 1GB de RAM e um disco de 64GB mas com um SO de 32 bits para manter a compatibilidades do ARMv6. O anterior \'e9 um Raspberry Pi 1 B+ com um processador ARMv6, 512MB de RAM e um disco de 32GB.\
+\
+NOTA2: 8 Mar 2025, voltou a ser poss\'edvel fazer login por ssh! \cf3 A 7 Mar de 2025 o nosso servidor sofreu um ataque do tipo \'93fork bomb\'94 e ficou inoperacional entre as 20:58:33 at\'e9 \'e0s 23:55:23! Foi usada uma conta de um de v\'f3s para incriminar a quem nada teve a ver com o sucedido! GRAVE!!! Logo a situa\'e7\'e3o extrapolou a m\'e1 f\'e9 e \'e9 mesmo grav\'edssimo! Fica aqui a nota que tudo ser\'e1 feito para saber quem foi o autor e caso se obtenha a prova inequ\'edvoca da autoria deste acto, a pessoa em quest\'e3o ficar\'e1 seriamente comprometida. Isto \'e9 INADMISS\'cdVEL e sim, \'e9 um caso de pol\'edcia!\cf2 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\qc\partightenfactor0
+\cf0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \ul \ulc0 Corroborar e justificar a estrat\'e9gia usada na unidade curricular\ulnone \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f1\b0 \cf0 \
+	Com esta m\'e1xima de Tanenbaum & Bos (2015, p. 713) tenta-se, mais uma vez, corroborar e justificar a estrat\'e9gia usada na unidade curricular de SO, onde o dom\'ednio na utiliza\'e7\'e3o da shell (CLI - \'93Command Line Interface\'94 - ou Command Interpreter\'94), que vem por defeito num SO, \'e9 \'fanica forma que temos para perceber como os sistemas operativos funcionam e conseguirmos usar todas as suas funcionalidades:\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b \cf0 \
+	\'93
+\f2\i\b0 Although graphical interfaces may be easy for beginners, they provide little flexibility and 
+\f3\b \ul no insight into how the system works
+\f2\b0 \ulnone .
+\f0\i0\b \'94\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f1\b0 \cf0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b \cf4 Tarefas para a semana 4
+\f1\b0 :\
+\
+1.\cf0  Modelo em: {\field{\*\fldinst{HYPERLINK "https://www.overleaf.com/read/mndsqhpnmmhm"}}{\fldrslt https://www.overleaf.com/read/mndsqhpnmmhm}}\
+\
+			\cf2 NOTA: voltar a fazer download do modelo que vai na vers\'e3o 0.x\cf0 \
+\
+2. As perguntas de partida da unidade curricular \'93Sistemas Operativos\'94:\
+\
+			2.1 O que \'e9 um \'93Sistema Operativo\'94 (SO)? / WHAT IS AN OPERATING SYSTEM?\
+\
+			2.2 Como \'e9 constitu\'eddo e como funciona um SO?\
+\
+			2.3 E talvez antes de tudo: porque \'e9 que foram criados os Sistemas Operativos? De acordo com Tanembaun & Bos (2015, p. 1), os Sistemas Operativos foram criados porque:\
+\
+					\'93
+\f2\i \ul A modern computer consists of\ulnone  one or more processors, some main 					memory, disks, printers, a keyboard, a mouse, a display, network 					interfaces, and various other input/output devices. \ul All in all, a complex 					system\ulnone . If every application programmer had to understand how all 					these things work in detail, no code would ever get written. Furthermore, 					managing all these components and using them optimally is an 					exceedingly challenging job. \ul For this reason, computers are equipped 					with\ulnone  \cf2 a layer of software called the operating system\cf0 , \cf4 whose job is\cf2  to 					provide user programs with a better, simpler, cleaner, model of the 					computer and to handle managing all the resources just mentioned\cf0 .
+\f1\i0 \'94\
+			\
+3. Fazer o 3\'ba Trabalho pr\'e1tico sobre a BASH vendo as v\'eddeo-aulas embebidas no moodle. Mais uma vez \'e9 preciso ter cuidado que na v\'eddeo aula o cen\'e1rio de testes \'e9 diferente e \'e9 agora preciso sempre primeiro ligar-se \'e0 VPN da ESTG/IPVC para se conseguir aceder ao servidor Raspberry Pi 1 B+ com o IP 10.1.186.183. \cf3 \
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\qc\partightenfactor0
+\cf3 PARA O TRAB3 ATEN\'c7\'c3O: \
+Todos dever\'e3o \ul \ulc3 apagar os ficheiros que acabem em *conf e com extens\'e3o *.c depois de terem sido copiados para os vossos direct\'f3rios ~/SO/PL/trab3\ulnone  e terem tirado o respectivo \'93screen-shot\'94, para n\'e3o consumirmos disco desnecess\'e1rio!\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf3 			$ rm *conf	# remove all conf files\
+			$ rm *.c			# remove all .c files\
+\
+Desconta automaticamente 25% da nota obtida nesse trabalho caso n\'e3o o fizerem!\
+\
+\cf4 	
+\f0\b \ul Mas, antes de come\'e7armos a fazer o trab3 dever\'e3o ver
+\f1\b0 \ulnone  o document\'e1rio \cf0 AT&T Tech Channel (2012)\cf4  que se encontra embebido no Moodle:\
+\
+\'93
+\f4\i\fs54 \cf5 \cb6 \expnd0\expndtw0\kerning0
+In the late 1960s, Bell Laboratories computer scientists 
+\f5\b \ul Dennis Ritchie
+\f4\b0 \ulnone  and 
+\f5\b \ul Ken Thompson
+\f4\b0 \ulnone  started work on a project that was inspired by an operating system called 
+\f5\b \ul Multics, a joint project of MIT, GE, and Bell Labs
+\f4\b0 \ulnone . The host and narrator of this film, Victor Vyssotsky, also had worked on the Multics project. Ritchie and Thompson, recognizing some of the problems with the Multics OS, set out to create a more useful, flexible, and portable system for programmers to work with.\
+\pard\pardeftab720\partightenfactor0
+\cf5 \
+What's fascinating about the growth of UNIX is the long amount of time that it was given to develop, almost organically, and based on the needs of the users and programmers. The first installation of the program was done as late as 1972 (on a NY Telephone branch computer). It was in conjunction with the refinement of the C programming language, principally designed by Dennis Ritchie.\
+\
+
+\f5\b \ul Because\ulnone  the Bell System had limitations placed by the government that prevented them from selling software, UNIX was made available under license to universities and the government. This helped further its development, as well as making it a more "open" system.
+\f4\b0 \
+\
+This film "The UNIX System: Making Computers More Productive", is onex of two that Bell Labs made in 1982 about UNIX's significance, impact and usability. Even 10 years after its first installation, it's still an introduction to the system. The other film, "The UNIX System: Making Computers Easier to Use", is roughly the same, only a little shorter. The former film was geared towards software developers and computer science students, the latter towards programmers specifically.\
+\
+The film contains interviews with primary developers Ritchie, Thompson, 
+\f5\b Brian Kernighan
+\f4\b0 , and many others.\
+\
+While widespread use of UNIX has waned, most modern operating systems have at least a conceptual foundation in UNIX.\
+\
+Footage courtesy of AT&T Archives and History Center, Warren, NJ
+\f1\i0\fs80 \cf4 \cb1 \kerning1\expnd0\expndtw0 \'94\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf4 \
+Aqui v\'e3o perceber quem foram os autores/programadores do SO UNIX, onde foi criado/implementado, como e porque \'e9 que houve a necessidade de criar um novo sistema operativo bem como quais foram os dois computadores usados para tal! V\'e3o assim ouvir o testemunho 
+\f0\b na primeira pessoa
+\f1\b0  dos criadores da linguagem C para re-escreverem o SO UNIX tal como o conhecemos hoje, e como tudo realmente foi pensado para tornar mais f\'e1cil a cria\'e7\'e3o de novos programas de forma mais eficiente e, por consequ\'eancia, o uso de um computador.\
+\
+	\'93Because the Bell System had limitations placed by the government that prevented them from selling software, 
+\f2\i UNIX was made available under license to universities and the government. This helped further its development, as well as making it a more \'91open\'92system.
+\f1\i0 \'94\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\qr\partightenfactor0
+\cf4 	in {\field{\*\fldinst{HYPERLINK "https://techchannel.att.com/playvideo/2012/02/22/AT&T-Archives-The-UNIX-System"}}{\fldrslt https://techchannel.att.com/playvideo/2012/02/22/AT&T-Archives-The-UNIX-System}}\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf4  	or \
+		in {\field{\*\fldinst{HYPERLINK "https://www.youtube.com/watch?v=tc4ROCJYbm0"}}{\fldrslt https://www.youtube.com/watch?v=tc4ROCJYbm0}}\
+\
+Assim sendo, na janela temporal 4:08-10:50 do v\'eddeo, 
+\f0\b \ul Brian Kernighan
+\f1\b0 \ulnone  explica como o SO UNIX original foi criado de forma quase org\'e2nica (i.e., \'e0 medida que os funcion\'e1rios dos Bell-Lab da AT&T foram precisando, por forma a facilitar o uso de um determinado computador usado como servidor (
+\f0\b \cf2 qual ter\'e1 sido?
+\f1\b0 \cf4 ) - ir\'e3o ver que todos usam terminais \'93est\'fapidos\'94 (sem processamento local) - conjunto de teclado e monitor, ligados em rede com o computador principal onde \'e9 feito todo o processamento - como ali\'e1s, n\'f3s tamb\'e9m estamos a trabalhar!) e como o SO UNIX \'e9 conceptualmente constitu\'eddo por um n\'facleo chamado Kernel, por uma interface em linha de comandos chamada shell e pelos utilit\'e1rios/programas/comandos. Explica tamb\'e9m, e muito bem, como funciona o mecanismo de \'93pipeline\'94, \'fanico, e implementado nos SO\'92s UNIX-like, que iremos usar a partir deste trabalho-pr\'e1tico no. 3. \
+\
+	No minuto 11:35 
+\f0\b \ul Dennis Ritchie
+\f1\b0 \ulnone  (um dos criados da linguagem C bem como do SO UNIX) lan\'e7a o mote sobre algumas das caracter\'edsticas \'edmpares do SO UNIX que tornam a tarefa de programar (ou seja, na \'f3ptica do programador de programas/utilit\'e1rios/comandos) muito mais simples do que aquilo que acontece com outros SO\'92s (da \'e9poca!). Brian Kernighan aprofunda o assunto relacionado com o sistema de ficheiros do UNIX (file-system) e como \'e9 simples aceder a um determinado ficheiro (ler) ou escrever num ficheiro onde o SO virtualiza por completo as complexidades inerentes as essas opera\'e7\'f5es. \
+\
+	No minuto 12:55 
+\f0\b \ul Ken Thompson
+\f1\b0 \ulnone  continua o assunto definindo o que \'e9 um ficheiro cujo seu principal atributo \'e9 o tamanho do ficheiro (ao contr\'e1rio do que acontece nos outros SO\'92s) e como \'e9 realmente simples ler ou escrever num ficheiro.  Ir\'e3o verificar que o Brian Kernighan tem o dom da palavra, sabe muito bem explicar os conceitos introduzidos pelos seus colegas. Por exemplo, no minuto 13:20 Kernighan volta a explicar agora, como mais pormenor, como \'e9 constitu\'eddo o sistemas de ficheiros do SO UNIX (\'93file-system\'94); i.e., a forma como o SO UNIX virtualiza todos os Bytes armazenados nas mem\'f3rias n\'e3o-vol\'e1teis do computador (no nosso caso, do Raspberry Pi que usamos, estamos a falar de um cart\'e3o micro-SD da SAMSUNG de 16GB) abstraindo-nos da complexidade de como os Bytes s\'e3o escritos e  lidos neste tipo de hardware. Ir\'e3o constatar que o primeiro comando que usa \'e9 o pwd e a\'ed ir\'e3o ver que no SO UNIX original, a \'e1rea de trabalho dos utilizadores estava no direct\'f3rio /usr (que significava \'93user\'94). Hoje em dia, e no caso dos SO\'92s GNU/Linux as \'e1reas de trabalho dos utilizadores est\'e3o localizadas no direct\'f3rio /home e no SO macOS em /Users. A\'ed tamb\'e9m ir\'e3o verificar que a prompt \'e9 simplesmente \'93i:  \'94 e o cursor \'e9 apenas o caracter \'93_\'94 a piscar. \
+\
+	No minuto 15:23 Kernighan come\'e7a a explicar o que \'e9 uma 
+\f0\b shell-script
+\f1\b0  passando a palavra para 
+\f0\b \ul Lorinda Cherry
+\f1\b0 \ulnone  que aprofunda o assunto justificando as potencialidades de colocar todos comandos da shell que queremos voltar a repetir mais do que uma vez, num \'fanico ficheiro e, assim, rapidamente fazermos um novo programa (chamado shell-script que ser\'e1 o tema do trabalho pr\'e1tico no. 6) que n\'e3o precisa ser compilado/traduzido mas ser\'e1, sim, interpretado pela shell - dado que cada introdu\'e7\'e3o \'e9 um comando da shell; mais uma curiosidade, aqui ver\'e3o que a prompt da Cherry j\'e1 \'e9 mais parecido com o que temos: \'93$ \'94 (assim, veremos no pr\'f3ximo trabalho pr\'e1tico como poderemos configurar a nossa prompt). \
+\
+	No minuto 17:12 Dennis Ritchie volta a intervir para explicar os conceitos de redirecionamento do stdin, stdout and stderr atrav\'e9s dos s\'edmbolos \'93<\'93, \'93>\'94 e \'932>\'94. O assunto \'e9 ent\'e3o desenvolvido, mais uma vez, por Kerninghan que nos justifica como o direccionamento \'e9 f\'e1cil de ser feito em UNIX e que \'e9 a pr\'f3pria shell que trata do redirecionamento do fluxo de bits sem a interfer\'eancia dos programas que manda executar. A\'ed justifica que tudo s\'e3o ficheiros, inclusivamente todo o hardware em si abstra\'eddos no conceito de ficheiros: em UNIX tudo s\'e3o ficheiros.\
+\
+	No minuto 19:10 o anfitri\'e3o Victor Vyssotsky volta a aparecer para introduzir como o SO UNIX foi feito usando a linguagem C criada por Dennis Ritchie bem como um programa t\'e3o complexo como \'e9 o de desenhar circuitos impressos foi feito com base em pequenos programas combinados depois pela shell usando a t\'e9cnica do \'93pipelining\'94. O mesmo faz o termo do document\'e1rio como um vision\'e1rio ao concluir que os computadores estar\'e3o cada vez mais presentes nas nossas vidas e como tal, dever\'e3o evoluir por forma a que a interac\'e7\'e3o homem-m\'e1quina se torne cada vez mais f\'e1cil, em que o SO UNIX \'e9 certamente um dos bons exemplos de como essa interac\'e7\'e3o come\'e7ou a ser bem mais f\'e1cil.\
+\
+	(Uma das s\'e9ries da \'e9poca - anos 70 - onde se faz uso dos computadores \'93Espa\'e7o 1999\'94, poder\'e3o constatar que mesmo a\'ed n\'e3o existiam os tais terminais est\'fapidos - onde temos o conjunto de teclado e monitor para interagir com o computador - e onde se pode concluir o quanto de revolucion\'e1rio era trabalhar dessa forma no laborat\'f3rios Bell!)\
+\
+Hoje em dia, Brian Kernighan volta a falar neste v\'eddeo em {\field{\*\fldinst{HYPERLINK "https://youtu.be/QFK6RG47bww"}}{\fldrslt https://youtu.be/QFK6RG47bww}} enfatizando a sorte que teve em ir trabalhar para os laborat\'f3rios Bell nas f\'e9rias de ver\'e3o de 1967 (e onde ficou a trabalhar durante 30 anos!) quando tinha acabado de se licenciar, bem como era o ambiente de trabalho nos Bell-Lab que poderemos traduzir na seguinte frase: \'93\'c9ramos pagos para n\'e3o fazer nada! Da\'ed ser um ambiente super criativo\'85 Isto porque a unidade investiga\'e7\'e3o era da AT&T, empresa de telecomunica\'e7\'f5es que detinha o monop\'f3lio das tele-comunica\'e7\'f5es dos EUA na altura e onde o dinheiro simplesmente n\'e3o era um problema!\'94 A sua avalia\'e7\'e3o de desempenho era feito apenas escrevendo numa p\'e1gina de papel o que tinha feito esse ano que iria determinar o quanto iriam pagar no ano seguinte\'85 ENA que sortudo!!! Tamb\'e9m explica como era funcionar com um computador quando n\'e3o existiam os SO\'92s bem como quando surgiram os SO\'92s que possibilitavam a partilha de um computador por v\'e1rios utilizadores: TIME-SHARING.\
+\
+Para terminar, seria muito interessante perceberem como foi que apareceu a linguagem C - a linguagem de programa\'e7\'e3o m\'e3e de todas as actuais linguagens de programa\'e7\'e3o! Para tal vejam o v\'eddeo de \cf0 Riley, S. (2015) \cf4 em {\field{\*\fldinst{HYPERLINK "https://youtu.be/de2Hsvxaf8M"}}{\fldrslt https://youtu.be/de2Hsvxaf8M}} onde, mais uma vez, o Professor Brian Kernighan explica como tudo aconteceu. Muito bom!\cf3 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+4. \cf4 Voltar a relembrar que 
+\f0\b \cf0 at\'e9 31 de Mar\'e7o
+\f1\b0 , fazer uma linha temporal sobre \'93A hist\'f3ria dos Sistemas Operativos\'94 usando a plataforma online Sutori fazendo um \'93post\'94 em \'93
+\f2\i Share your own timeline about 'The history of Operating Systems' in this f\'f3rum
+\f1\i0 \'94 no Moodle. Isto porque de acordo com \cf2 Pappas (2013)\cf0 :\
+\
+	\'93
+\f2\i \cf2 Timelines have become an indispensable part of the learning experience as they enable students to participate more actively in learning and acquire knowledge the easy way. In other words, \ul timelines help students easily understand and memorize events and dates\ulnone . But how easy it is to create them? Which are the best \'96and free\'96 tools that you can use?
+\f1\i0 \cf0 \'94\
+\
+Dever\'e3o ent\'e3o usar a plataforma online no URL {\field{\*\fldinst{HYPERLINK "https://www.sutori.com"}}{\fldrslt https://www.sutori.com}} usando o c\'f3digo \cf3 6b5hj\cf0  para se juntarem \'e0 turma (e terem todas as funcionalidades activas) devendo, mais uma vez, \cf3 colocar a vossa foto de rosto e nome completo para vossa inequ\'edvoca identifica\'e7\'e3o\cf0 . \
+\
+Esta ser\'e1 a principal pergunta de partida sobre esta tem\'e1tica (\cf4 Tanenbaum & Bos, 2015, p. 6)\cf0 :\
+\
+	1. Quais ser\'e3o os principais marcos hist\'f3ricos da hist\'f3ria dos Sistemas Operativos? (Estar\'e1 esta relacionada com a hist\'f3ria dos computadores?)\
+\
+	A partir desta mais duas perguntas de investiga\'e7\'e3o surgem naturalmente:\
+\
+		2. Qual ter\'e1 sido o primeiro Sistema Operativo criado e para que computador espec\'edfico?\
+		3. Quais ter\'e3o sido as principais Unidades de I&D (Desenvolvimento & Investiga\'e7\'e3o) e/ou Empresas que contribu\'edram na cria\'e7\'e3o e evolu\'e7\'e3o dos actuais Sistemas Operativos? \
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\qc\partightenfactor0
+\cf0 			\cf2 The history of Operating Systems begins in 
+\f0\b 1954, 1955 
+\f1\b0 or in 
+\f0\b 1956?
+\f1\b0 \cf0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+			1954/1955 - 
+\f0\b MIT Servomechanisms Laboratory
+\f1\b0  (MIT - 
+\f0\b Massachusetts Institute of Technology
+\f1\b0 ) creates its \'93
+\f2\i MIT's Tape Director \ul operating system\ulnone  developed for its \ul Whirlwind computer\ulnone , also used for the \ul UNIVAC 1103\ulnone : the first example of a \ul Job Control Language (JCL) driven operating system
+\f1\i0 \ulnone \'94 in {\field{\*\fldinst{HYPERLINK "https://donsnotes.com/tech/computers/operating-systems.html"}}{\fldrslt https://donsnotes.com/tech/computers/operating-systems.html}}:\
+							\'93
+\f2\i 1955: Computer pioneer Doug Ross demonstrates the Director tape for MIT\uc0\u700 s Whirlwind machine. \ul It's a new idea: a permanent set of instructions on how the computer should operate.
+\f1\i0 \ulnone \'94\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\qr\partightenfactor0
+\cf0 in  {\field{\*\fldinst{HYPERLINK "https://www.wired.com/2010/03/0308doug-ross-director-tape/"}}{\fldrslt https://www.wired.com/2010/03/0308doug-ross-director-tape/}}\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+			1955 - 
+\f0\b General Motors Research Labs
+\f1\b0  from General Motors creates the GM Operating System for the {\field{\*\fldinst{HYPERLINK "https://www.ibm.com/ibm/history/exhibits/701/701_intro.html"}}{\fldrslt IBM 701 Electronic Data Processing Machine}}, known as the Defense Calculator (
+\f0\b IBM  - International Business Machines Corporation 
+\f1\b0 \'93 was created in 1911 \'85\'94 in {\field{\*\fldinst{HYPERLINK "https://en.wikipedia.org/wiki/IBM"}}{\fldrslt https://en.wikipedia.org/wiki/IBM}}):\
+							\'93
+\f2\i 1955 - The General Motors Research Laboratories implemented an operating system for the IBM 701. Generally \ul considered the first operating system.
+\f1\i0 \ulnone \'94 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\qr\partightenfactor0
+\cf0 	in {\field{\*\fldinst{HYPERLINK "https://donsnotes.com/tech/computers/operating-systems.html"}}{\fldrslt https://donsnotes.com/tech/computers/operating-systems.html}}\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+		But according to {\field{\*\fldinst{HYPERLINK "http://girfahelp.blogspot.com/2014/07/first-things-of-computer-world.html"}}{\fldrslt Kumar (2014)}}:\
+			\'93
+\f2\i The 
+\f3\b GM-NAA I/O
+\f2\b0  input/output system of General Motors and North American Aviation was 
+\f3\b the first operating system 
+\f2\b0 for the
+\f3\b  IBM 704 
+\f2\b0 computer. It was created in 
+\f3\b 1956
+\f2\b0  by 
+\f3\b Robert L. Patrick of General Motors
+\f2\b0  and 
+\f3\b Owen Mock of North American Aviation
+\f2\b0 . It was based on a 
+\f3\b \ul system monitor
+\f2\b0  created in 
+\f3\b 1955
+\f2\b0  by programmers of General Motors for its 
+\f3\b IBM 701
+\f2\b0 \ulnone . The main function of GM-NAA I/O was to automatically execute a new program once the one that was being executed had finished (batch processing).
+\f1\i0 \'94\
+\
+			\cf2 So, in fact, which is considered the first Operating System? Or could these be considered as the first attempts to simplify human/programmer-machine interaction to maximise computer utilisation as the computers, at that time, were extremely expensive? In fact, this seems to have been the case, according to Stallings (2018): \
+			\'93Early computers were very expensive, and therefore it was important \ul \ulc2 to maximize processor utilization\ulnone . The wasted time due to scheduling and setup time was unacceptable.\ul To improve utilizatio\ulnone n, the concept of a batch OS was developed. It appears that the first 
+\f0\b \ul batch OS (and the first OS of any kind)
+\f1\b0 \ulnone  was developed in the \ul mid-1950s by General Motors for use on an IBM 701 (Weizer, 1981)\ulnone . The concept was subsequently refined and implemented on the IBM 704 by a number of IBM customers. By the early 1960s, a number of vendors had developed batch operating systems for their computer systems.\'94\cf0 \
+\
+			1957 - 
+\f0\b Bell Labs
+\f1\b0  from 
+\f0\b AT&T
+\f1\b0 : \'93
+\f2\i The initial system, BESYS-1, was in use by October 16, 1957. It was designed for a (IBM) 704 \'85
+\f1\i0 \'94 (Drummond, 1987, p. 808).\
+\
+			(\'85)\
+\
+			1961 - 
+\f0\b MIT
+\f1\b0  Computation Center - CTSS:\
+						\'93
+\f3\i\b The Compatible Time-Sharing System
+\f2\b0  (CTSS) was one of the first 			time-sharing operating systems; it was developed at the MIT Computation 			Center. CTSS was first demonstrated on MIT's 
+\f3\b IBM 709
+\f2\b0  in November 1961; 			service to MIT users began in the summer of 1963 and was operated until 			1973. During part of this time, MIT's influential Project MAC also ran a 			CTSS service, (\'85).\
+						CTSS was described in a paper presented at the 1962 Spring Joint 			Computer Conference, and greatly influenced the design of other early 			time-sharing systems.
+\f1\i0 \'94\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\qr\partightenfactor0
+\cf0 in {\field{\*\fldinst{HYPERLINK "https://en.wikipedia.org/wiki/Compatible_Time-Sharing_System"}}{\fldrslt https://en.wikipedia.org/wiki/Compatible_Time-Sharing_System}}\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+			1965 - 
+\f0\b MIT
+\f1\b0  (MIT's Project MAC) + 
+\f0\b GE
+\f1\b0  (General Electric Company) + 
+\f0\b Bell Labs
+\f1\b0  - MULTICS:\
+						\'93MULTICS (Multiplexed Information and Computing Service) is a 			
+\f0\b timesharing operating system
+\f1\b0  begun in 1965 and used until 2000. The 			system was started as a joint project by MIT's Project MAC, Bell Telephone 			Laboratories, and General Electric Company's Large Computer Products 			Division. Professor Fernando J. Corbat\'f3 of MIT led the project. Bell Labs 			withdrew from the development effort in 1969, and in 1970 GE sold its 			computer business to Honeywell, which offered MULTICS as a commercial 			product and sold dozens of systems, until its cancellation in 1985.\'94\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\qr\partightenfactor0
+\cf0 	in {\field{\*\fldinst{HYPERLINK "https://www.multicians.org/history.html"}}{\fldrslt https://www.multicians.org/history.html}}\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\qc\partightenfactor0
+\cf0 			\cf7 (1968 - The invention of the GUI and the mouse by Douglas Engelbart and his team at SRI (at the time called Stanford Research Institute) presented on December 9, 1968 from URL: {\field{\*\fldinst{HYPERLINK "https://youtu.be/B6rKUf9DWRI"}}{\fldrslt https://youtu.be/B6rKUf9DWRI}})\cf0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+			1969 to 1973 - 
+\f0\b Bell Labs
+\f1\b0  from AT&T - UNIX (Kernighan & Pike, 1984, p. vii):\
+					\'93
+\f2\i \cf2 The UNIX operating system started on a cast-off 
+\f3\b DEC PDP-7
+\f2\b0  at Bell 			Laboratories in 1969. 
+\f3\b Ken Thompson
+\f2\b0 , with ideas and support from Rudd 			Canaday, Doug Mcllroy, Joe Ossanna, and 
+\f3\b Dennis Ritchie
+\f2\b0 , wrote a small 			general-purpose time-sharing system comfortable enough to attract 			enthusiastic users and eventually enough credibility for the purchase of a 			larger machine - a PDP-11/20. One of the early users was Ritchie, who 			helped move the system to the 
+\f3\b PDP-11
+\f2\b0  in 1970. 
+\f3\b Ritchie also designed 			and 	wrote a compiler for the C programming language
+\f2\b0 . 
+\f3\b In 1973, 			Ritchie and 	Thompson rewrote the UNIX kernel in C
+\f2\b0 , breaking from the 			tradition that system software is written in assembly language. \ul With that 			rewrite, the system became essentially what it is today\ulnone .\
+				Around 1974 it was licensed to universities \'93for educational purposes\'94 and 			
+\f3\b \ul a few years later became available for commercial use
+\f2\b0 \ulnone .
+\f1\i0 \cf0 \'94\
+				\
+\
+				E foi pelo facto de a AT&T ter restringido as licen\'e7as do SO UNIX (isto \'e9, quem quisesse usar legalmente o SO UNIX tinha de pagar uma licen\'e7a!) e terem deixado de disponibilizar o c\'f3digo-fonte do SO UNIX (\'93
+\f0\b \cf4 \ul for commercial use
+\f1\b0 \cf0 \ulnone \'94) \'e9 que fez com que nos anos 80 Richard Stallman criasse o projecto GNU, para criar um novo SO UNIX mas com licen\'e7a completamente oposta chamada GPL (\'93General Public License\'94). Foi tamb\'e9m por isso que o Professor Tanenbaum criou o SO MINIX pois usava o SO UNIX nas suas aulas de SO. \
+	Apesar do Professor Tanenbaum querer que o SO MINIX fosse gratuito e de c\'f3digo-fonte aberto (pelo menos para os seus alunos de SO), o editor do seu correspondente livro \'93Operating Systems Design and Implementation\'94, onde explicava como estava feito o SO MINIX, n\'e3o deixou que tal acontecesse! Quem comprasse o livro tinha licen\'e7a para usar uma c\'f3pia do SO MINIX e tinha acesso ao c\'f3digo-fonte. Quem quisesse somente instalar o SO MINIX tinha de pagar uma licen\'e7a de $69, pre\'e7o que parecia ser muito abaixo do que era praticado na altura para outros SOs. Somente em 2000 \'e9 que o SO MINIX v2 passou a ser \'93open-source\'94 e de livre utiliza\'e7\'e3o com licen\'e7a BSD ({\field{\*\fldinst{HYPERLINK "https://en.wikipedia.org/wiki/Minix"}}{\fldrslt https://en.wikipedia.org/wiki/Minix}}); hoje em dia, desde 2015 ou 2017 que todos os processadores da Intel t\'eam dentro um computador a correr o MINIX com um webserver!!! \
+			\
+\
+			1972 - 
+\f0\b XEROX PARC
+\f1\b0  from XEROX: Alto Operating System inside the Alto Computer ({\field{\*\fldinst{HYPERLINK "https://guidebookgallery.org/articles/thexeroxaltocomputer"}}{\fldrslt Wadlow,1981}}), considered the first GUI Operating System controlled by a mouse based on research by Douglas Engelbart in 1968. \
+\
+			1974 - 
+\f0\b Digital Research, Inc.
+\f1\b0  (DR or DRI): CP/M (Control Program for Microcomputers) by Gary Kildall in {\field{\*\fldinst{HYPERLINK "https://site.ieee.org/scv/2019/06/16/ieee-milestone-cp-m-microcomputer-operating-system/"}}{\fldrslt https://site.ieee.org/scv/2019/06/16/ieee-milestone-cp-m-microcomputer-operating-system/\
+}}\
+			1978 - 
+\f0\b APPLE
+\f1\b0 : Apple-DOS (
+\f0\b Steve Jobs
+\f1\b0  and 
+\f0\b Steve Wozniak
+\f1\b0 )\
+\
+			1980 - 
+\f0\b Seattle Computer Products
+\f1\b0 : 
+\f0\b QDOS
+\f1\b0  (Quick and Dirty Operating System) by 
+\f0\b Tim Paterson
+\f1\b0  renamed 86-DOS to be sell to Microsoft. \cf2 Was QDOS a CP/M clone? Apparently it seems to be! But ...\
+\cf0 			1980 - 
+\f0\b MICROSOFT (Bill Gates 
+\f1\b0 and Paul Allen
+\f0\b )
+\f1\b0 : Microsoft bought 86-DOS and calls it 
+\f0\b MS-DOS
+\f1\b0  (Microsoft Disk Operating System) to be licensed to IBM to its Personal Computers. \cf2 The empire of Microsoft starts here with the licensing of the OS something unprecedented at the time!\cf0 \
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\qc\partightenfactor0
+\cf8 (My first computer: ZX Spectrum!\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf8 		1982 - 
+\f0\b Sinclair Research Ltd
+\f1\b0  (a British consumer electronics company founded by Clive Sinclair in Cambridge) with the 
+\f0\b ZX Spectrum Sinclair BASIC
+\f1\b0 :\
+\
+					\'93
+\f2\i These systems from the late 1970s did not have an operating system, at least not what you would consider to be an operating system today. They typically had 
+\f3\b \ul a BASIC programming language interpreter
+\f2\b0 \ulnone  stored in ROM (read-only memory), and the interpreter also included a few commands that allowed you to save and load programs to and from cassette tape or some other storage device. Beyond that, you were basically sitting at 
+\f3\b \ul a text-based command prompt for a BASIC language interpreter
+\f2\b0 \ulnone .
+\f1\i0 \'94\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\qr\partightenfactor0
+\cf8 in {\field{\*\fldinst{HYPERLINK "https://www.quora.com/What-was-the-operating-system-like-in-computers-such-as-the-ZX-Spectrum-or-Commodore-64"}}{\fldrslt https://www.quora.com/What-was-the-operating-system-like-in-computers-such-as-the-ZX-Spectrum-or-Commodore-64}})\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 			\
+					\cf2 (Vejam este document\'e1rio sobre o ZX Spectrum em Portugal por parte de um colecionador meu vizinho em Cantanhede: {\field{\*\fldinst{HYPERLINK "https://www.youtube.com/watch?v=Xc04XFySuvs"}}{\fldrslt https://www.youtube.com/watch?v=Xc04XFySuvs}} bem como a not\'edcia em {\field{\*\fldinst{HYPERLINK "https://tek.sapo.pt/noticias/computadores/artigos/cantanhede-tem-um-primeiro-museu-do-mundo-totalmente-dedicado-ao-zx-spectrum"}}{\fldrslt https://tek.sapo.pt/noticias/computadores/artigos/cantanhede-tem-um-primeiro-museu-do-mundo-totalmente-dedicado-ao-zx-spectrum}} e em {\field{\*\fldinst{HYPERLINK "https://advnce.sic.pt/programas/retro_gamers/2020-12-29-Quando-o-ZX-Spectrum-fazia-magia"}}{\fldrslt https://advnce.sic.pt/programas/retro_gamers/2020-12-29-Quando-o-ZX-Spectrum-fazia-magia}}). Ler e ver obrigatoriamente este \'faltimo document\'e1rio a partir de {\field{\*\fldinst{HYPERLINK "https://tek.sapo.pt/noticias/computadores/artigos/o-impacto-da-timex-portugal-e-a-homenagem-a-engenharia-portuguesa-em-documentario-sobre-o-spectrum"}}{\fldrslt https://tek.sapo.pt/noticias/computadores/artigos/o-impacto-da-timex-portugal-e-a-homenagem-a-engenharia-portuguesa-em-documentario-sobre-o-spectrum}}. \cf0 \
+											\
+			1983 - Apple: Lisa the first Apple GUI OS with the technology of XEROX PARC.\
+			1983 - Microsoft: MS-Windows 1.0 inside MS-DOS with the technology of XEROX PARC:\
+						c:\\win\
+\
+			1984 - Apple: \'93The Macintosh \'91System 1\'92 is the first version of Apple Macintosh operating system and the beginning of the classic Mac OS series.\'94\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\qr\partightenfactor0
+\cf0 in {\field{\*\fldinst{HYPERLINK "https://en.wikipedia.org/wiki/System_1"}}{\fldrslt https://en.wikipedia.org/wiki/System_1}}\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\qc\partightenfactor0
+\cf0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\qc\partightenfactor0
+\cf3 (Steve Jobs was fired from Apple in 1986!) \
+(It is mandatory to see the film: \'93{\field{\*\fldinst{HYPERLINK "https://en.wikipedia.org/wiki/Pirates_of_Silicon_Valley"}}{\fldrslt Pirates of Silicon Valley}}\'94)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\qc\partightenfactor0
+\cf0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 			1988 - 
+\f0\b NeXT, Inc.
+\f1\b0  (later NeXT Computer, Inc. and NeXT Software, Inc.): founded by Steve Jobs (after he was fired from Apple)- 
+\f0\b NeXT Step OS 
+\f1\b0 for
+\f0\b  NeXT Cubes Wokstations; 
+\f1\b0 also Steve Jobs founded
+\f0\b  PIXAR (Pixel+Art) 
+\f1\b0 from
+\f0\b  Lucasfilm special-effects-graphics 
+\f1\b0 to sell NeXT computers and make the first computer-animated films. Here is the first created by John Lasseter: {\field{\*\fldinst{HYPERLINK "https://www.youtube.com/watch?v=D4NPQ8mfKU0"}}{\fldrslt https://www.youtube.com/watch?v=D4NPQ8mfKU0}}. 
+\f0\b \
+
+\f1\b0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\qc\partightenfactor0
+\cf9 (Steve jobs returns to Apple in 1996 and launch the iPod (2001)making Apple grow again!) - mp3/AAC\cf0 \
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 			2001 - 
+\f0\b Apple: Mac OS X 
+\f1\b0 from NeXT Step OS (All API/frameworks begins with NS\'85 like NSString, NSArray, etc.) just keeping the GUI of the previous OS: AQUA.\
+\
+			June 2007 - 
+\f0\b Apple
+\f1\b0 : iPhone OS -> 
+\f0\b iOS 
+\f1\b0 from Mac OS X\
+			November 2007 - 
+\f0\b GOOGLE
+\f1\b0 : 
+\f0\b Android 
+\f1\b0 \'93based on the Linux kernel\'94 (Tanenbaum & Bos , 2015, p. 802)
+\f0\b .\
+\
+			\cf2 E em Portugal, o que se passou? \'c9 que a bibliografia de refer\'eancia s\'f3 nos fala sobre o que aconteceu quer nos EUA quer no Reino Unido? E em Portugal, qual ter\'e1 sido o primeiro computador usado e onde isso aconteceu, e com que finalidade foi adquirido/comprado?\
+\
+			
+\f1\b0 \cf4 De acordo com um post do dia 19 de dezembro de 2011 online no site da TSF o primeiro computador em Portugal foi comprado em 1961 por Banco no Porto:\
+			\'93
+\f2\i Chamava-se 
+\f3\b National Elliot 803-B
+\f2\b0  e foi o primeiro computador a ser instalado em Portugal. Faz agora 50 anos. Este exemplar foi montado na 
+\f3\b casa Banc\'e1ria Pinto Magalh\'e3es, no Porto
+\f2\b0 , para fazer o registo de contas correntes e controlo das letras.
+\f1\i0 \'94\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\qr\partightenfactor0
+\cf4 	in {\field{\*\fldinst{HYPERLINK "https://www.tsf.pt/vida/ciencia-e-tecnologia/primeiro-computador-instalado-em-portugal-faz-50-anos-2195930.html"}}{\fldrslt https://www.tsf.pt/vida/ciencia-e-tecnologia/primeiro-computador-instalado-em-portugal-faz-50-anos-2195930.html}} 
+\f0\b \cf2 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f1\b0 \cf4 \
+		Poder\'e3o ver como se operava com um computador, fazer executar um programa, usando o Elliot 803 em {\field{\*\fldinst{HYPERLINK "https://www.youtube.com/watch?v=9TouLD9EOnQ"}}{\fldrslt https://www.youtube.com/watch?v=9TouLD9EOnQ}}\
+		\
+		De acordo com o {\field{\*\fldinst{HYPERLINK "https://noticias.up.pt/primeiro-computador-da-u-porto-comemora-50-anos/"}}{\fldrslt post online do site de not\'edcias da Universidade do Porto}}, o \'93primeiro computador digital autom\'e1tico adquirido por uma universidade portuguesa\'94 foi o \'93NCR Elliott 4100\'94 em 1967 pela Faculdade de Ci\'eancias da Universidade do Porto com um custo de 20.000 contos (20.000.000 escudos!) - fazendo a convers\'e3o directa para euros 100.000\'80 (no entanto, n\'e3o nos esque\'e7amos que estamos no fim dos anos 70 e eu lembro-me que passados 10 anos foi feita a casa dos meus pais que custou na altura cerca de 700 contos\'85 - assim este computador daria para fazer cerca de 30 casas iguais!!! Hoje em dia uma casa modesta anda na ordem dos 250.000\'80 multiplicando por 30 dar\'e1 uma boa aproxima\'e7\'e3o do custo na altura do NCR Elliott 4100: 7.5 milh\'f5es de euros!) Podem fazer download do artigo que serviu de fonte \'e0 not\'edcia em {\field{\*\fldinst{HYPERLINK "https://sigarra.up.pt/up/pt/web_gessi_docs.download_file?p_name=F1732486774/UPorto_Alumni_13_Marco_2011.pdf"}}{\fldrslt https://sigarra.up.pt/up/pt/web_gessi_docs.download_file?p_name=F1732486774/UPorto_Alumni_13_Marco_2011.pdf}} localizado nas p\'e1ginas 12-14. Dever\'e3o tamb\'e9m ver como foi poss\'edvel adquirir 20.000 contos para comprar tal computador em 1967: {\field{\*\fldinst{HYPERLINK "https://tv.up.pt/videos/z1b3az-z"}}{\fldrslt https://tv.up.pt/videos/z1b3az-z}} \
+\
+		Em 1982 tivemos uma empresa de computadores na Costa da Caparica (Almada), uma filial da Timex (norte americana) que fabricava rel\'f3gios e que acabou por fabricar durante 5 anos o ZX80 e o ZX81, os percursores do ZX Spectrum, de acordo com o post de 4 de novembro de 2006 em {\field{\*\fldinst{HYPERLINK "https://www.publico.pt/2006/11/04/jornal/quando-em-portugal-se-fabricavam-mais-de-10000-computadores-por-dia-105559"}}{\fldrslt https://www.publico.pt/2006/11/04/jornal/quando-em-portugal-se-fabricavam-mais-de-10000-computadores-por-dia-105559}}. \
+\
+		Poder\'e3o tamb\'e9m nos arquivos da RTP a \'93entrevista em est\'fadio ao professor Carlos Correia, diretor do Centro de Investiga\'e7\'e3o para as Tecnologias Interativas da Universidade Nova de Lisboa, e a Vasco Matos Trigo, jornalista da RTP especialista em ci\'eancia e tecnologia\'94 chamada \'93O Primeiro Computador em Portugal\'94 em {\field{\*\fldinst{HYPERLINK "https://arquivos.rtp.pt/conteudos/o-primeiro-computador-em-portugal/"}}{\fldrslt https://arquivos.rtp.pt/conteudos/o-primeiro-computador-em-portugal/}}.\
+
+\f0\b \cf2 \
+			Ter\'e1 havido (para al\'e9m do Magalh\'e3es!) a cria\'e7\'e3o de algum computador inovador para a \'e9poca? \
+			
+\f1\b0 \cf4 Segundo \cf0 Zagalo (2013, p. 29), o primeiro computador criado em Portugal foi o {\field{\*\fldinst{HYPERLINK "https://en.wikipedia.org/wiki/ENER_1000"}}{\fldrslt ENER 1000}} com o processador Z80 da Zilog: \
+\
+			\'93
+\f2\i Apesar de todo o acompanhamento inicial do que se fazia l\'e1 fora em termos de desenvolvimento de maquinaria de computa\'e7\'e3o, teremos de aguardar at\'e9 
+\f3\b 1979
+\f2\b0  para aparecer 
+\f3\b o primeiro prot\'f3tipo de uma m\'e1quina nacional
+\f2\b0 . A m\'e1quina denominada de 
+\f3\b ENER 1000
+\f2\b0 , ser\'e1 fruto de um projeto liderado por Ant\'f3nio Dias Figueiredo na Universidade de Coimbra. A sua primeira apresenta\'e7\'e3o p\'fablica acontece no Portugal Workshop on Signal Processing and its Applications, na P\'f3voa do Varzim em 1982. \
+		(\'85) \
+		Podemos dizer que o ENER 1000, foi o Magalh\'e3es dos anos 1980, e o verdadeiro primeiro computador nacional.
+\f1\i0 \'94\
+\
+	Segundo o post online {\field{\*\fldinst{HYPERLINK "http://piano.dsi.uminho.pt/museuv/1980a1989.html"}}{\fldrslt http://piano.dsi.uminho.pt/museuv/1980a1989.html}} o \'93prot\'f3tipo deste computador, concebido na Universidade de Coimbra, foi produzido em 
+\f0\b Setembro de 1981
+\f1\b0  (\'85)\'94. \
+\
+	Segundo a {\field{\*\fldinst{HYPERLINK "primeiro%20computador%20portugu%C3%AAs,%20desenhado%20e%20produzido%20industrialmente%20em%20Portugal,%20o%20ENER%201000"}}{\fldrslt BIO online do Prof. Doutor Jo\'e3o Gabriel Silva}}, o \'93primeiro computador portugu\'eas, desenhado e produzido industrialmente em Portugal, o ENER 1000 (\'85) projecto que decorreu de 1980 a 1985, 
+\f0\b \ul foi considerado pela Ordem dos Engenheiros um dos marcos da engenharia portuguesa do s\'e9culo XX
+\f1\b0 \ulnone . A Ordem incluiu-o na exposi\'e7\'e3o \'91Engenho e Obra - Engenharia em Portugal no s\'e9culo XX\'92, exibida na Cordoaria Nacional em Lisboa em 2003 (\'85)\'94. De facto, o Prof. Doutor Jo\'e3o Gabriel Silva, reitor da Universidade de Coimbra entre 2011 e 2019, \'93\'e9 o pai do ENER 1000, o primeiro computador portugu\'eas\'94 de acordo com a publica\'e7\'e3o online do JN em {\field{\*\fldinst{HYPERLINK "https://www.dn.pt/edicao-do-dia/27-ago-2018/joao-gabriel-silva-universidade-de-coimbra-e-uma-das-grandes-instituicoes-fundadoras-do-brasil-9762747.html"}}{\fldrslt https://www.dn.pt/edicao-do-dia/27-ago-2018/joao-gabriel-silva-universidade-de-coimbra-e-uma-das-grandes-instituicoes-fundadoras-do-brasil-9762747.html}} onde explica em entrevista como foi o ENER 1000 constru\'eddo e porqu\'ea!
+\f0\b \cf2 \
+			\
+			
+\f1\b0 \cf4 Sobre a produ\'e7\'e3o de outra fam\'edlia de computadores tamb\'e9m com o processador Z80 encontrei esta fonte com o t\'edtulo \'93
+\f0\b\fs70 \cf10 \expnd0\expndtw0\kerning0
+ZX SPECTRUM. TER\'c1 PORTUGAL LIDERADO UM IMP\'c9RIO TECNOL\'d3GICO?
+\f1\b0\fs80 \cf4 \kerning1\expnd0\expndtw0 \'94 em {\field{\*\fldinst{HYPERLINK "https://www.youtube.com/watch?v=eGv1yQaOw2Y&t=7s"}}{\fldrslt https://www.youtube.com/watch?v=eGv1yQaOw2Y&t=7s}} mais uma vez sobre a tem\'e1tica do ZX Spectrum em Portugal. 
+\f0\b \cf2 \
+\
+			Qual ter\'e1 sido o primeiro centro de investiga\'e7\'e3o em ci\'eancias da computa\'e7\'e3o e/ou empresa?\
+\
+			Teremos n\'f3s portugueses criado algum sistema operativo? Sim de facto! Pelo menos temos uma distribui\'e7\'e3o portuguesa muito conhecida: a caixa-m\'e1gica ({\field{\*\fldinst{HYPERLINK "https://www.caixamagica.pt/linux-cm"}}{\fldrslt https://www.caixamagica.pt/linux-cm}}). \
+\
+			EM 2021, quais s\'e3o as grandes fam\'edlias de SO ao nosso dispor? \cf11 MS-Windows and UNIX-like operating systems (macOS/iOS and GNU/Linux - Android).
+\f1\b0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+
+\f0\b %%%%\
+%TP%\
+%%%%
+\f1\b0 \
+\
+\
+1. Entregar o relat\'f3rio em pdf do 2\'ba trabalho-pr\'e1tico sobre a bash 
+\f0\b at\'e9 24 de mar\'e7o de 2025
+\f1\b0  e come\'e7ar a fazer o 3\'ba trabalho-pr\'e1tico na bash.\
+\
+2. 
+\f0\b At\'e9 31 de mar\'e7o
+\f1\b0  entregar a linha temporal\
+\
+3. Ver v\'eddeo embebido no moodle de 1982 sobre a cria\'e7\'e3o do SO UNIX nos laborat\'f3rios Bell da AT&T.\
+\
+4. Ver dois v\'eddeos do Brian Kernighan sobre como era trabalhar no Bell-Labs e sobre o primeiro livro sobre a linguagem C\
+\
+5. Ver o filme \'93Pirates of Silicon Valey\'94.\
+\
+6. Ver os v\'eddeos sobre a hist\'f3ria dos computadores em Portugal.\
+\
+7. Ler {\field{\*\fldinst{HYPERLINK "https://tek.sapo.pt/noticias/computadores/artigos/o-impacto-da-timex-portugal-e-a-homenagem-a-engenharia-portuguesa-em-documentario-sobre-o-spectrum"}}{\fldrslt https://tek.sapo.pt/noticias/computadores/artigos/o-impacto-da-timex-portugal-e-a-homenagem-a-engenharia-portuguesa-em-documentario-sobre-o-spectrum}} e ver o document\'e1rio.\
+\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\qr\partightenfactor0
+\cf0 BOM TRABALHO!\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+
+\f0\b Bibliografia
+\f1\b0 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+AT&T Tech Channel. (2012). \'93The UNIX
+\fs48 \super TM 
+\fs80 \nosupersub System: Making Computers More Productive\'94. in Google/Youtube from AT&T Archives produced in 1982. Youtube URL: {\field{\*\fldinst{HYPERLINK "https://youtu.be/tc4ROCJYbm0"}}{\fldrslt https://youtu.be/tc4ROCJYbm0}}.\
+\
+Drummond, R. (1987).  "BESYS revisited," in Managing Requirements Knowledge, International Workshop on, CHICAGO, pp. 805. doi: 10.1109/AFIPS.1987.27, URL: {\field{\*\fldinst{HYPERLINK "https://doi.ieeecomputersociety.org/10.1109/AFIPS.1987.27"}}{\fldrslt https://doi.ieeecomputersociety.org/10.1109/AFIPS.1987.27}}\
+\
+Figueiredo, A. D. (2004) Engenharia em Portugal no S\'e9culo XX: Engenharia Inform\'e1tica, Informa\'e7\'e3o, Comunica\'e7\'f5es. In M. Heitor, J. M. Brand\'e3o de Brito e M. F. Rolo (Editores). A Engenharia em Portugal no S\'e9c. XX, Vol. III, Lisboa: D. Quixote, pp. 551-573. Online from URL: {\field{\*\fldinst{HYPERLINK "https://www.academia.edu/194030/Engenharia_em_Portugal_no_S%C3%A9culo_XX_Engenharia_Inform%C3%A1tica_Informa%C3%A7%C3%A3o_Comunica%C3%A7%C3%B5es"}}{\fldrslt https://www.academia.edu/194030/Engenharia_em_Portugal_no_S\'e9culo_XX_Engenharia_Inform\'e1tica_Informa\'e7\'e3o_Comunica\'e7\'f5es}}\
+\
+Haran B. (2015). The Factory of Ideas: Working at Bell Labs - Computerphile. in Youtube from URL: {\field{\*\fldinst{HYPERLINK "https://youtu.be/QFK6RG47bww"}}{\fldrslt https://youtu.be/QFK6RG47bww}}\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf4 Stallings, W. (2018). Operating Systems: Internals and Design Principles, 9/e. Pearson IT Certification. Indianapolis, Indiana, USA. ISBN: 9352866711.\
+\
+Tanenbaum, A. S., & Bos, H. J. (2015). Modern Operating Systems, 4th Edition. Pearson Higher Education.\cf0 \
+\
+Pappas, C. (2013). TOP 10 free Timeline creation tools for teachers. Retrieved February 28, 2016, from Timeline makers, {\field{\*\fldinst{HYPERLINK "http://elearningindustry.com/top-10-free-timeline-creation-tools-for-teachers"}}{\fldrslt http://elearningindustry.com/top-10-free-timeline-creation-tools-for-teachers}}\
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 Riley, S. (2015). "C" Programming Language: Brian Kernighan - Computerphile. in Youtube from URL: {\field{\*\fldinst{HYPERLINK "https://youtu.be/de2Hsvxaf8M"}}{\fldrslt https://youtu.be/de2Hsvxaf8M}} \
+\
+Kernighan, B. W. & Pike, R. (1984). The UNIX Programming Environment, Upper Saddle River, NJ - Prentice Hall. Retrieved March 4, 2023, from URL: {\field{\*\fldinst{HYPERLINK "https://archive.org/details/UNIXProgrammingEnvironment/mode/2up"}}{\fldrslt https://archive.org/details/UNIXProgrammingEnvironment/mode/2up}}\
+\
+Wadlow, T. A. (1981). The Xerox Alto Computer. Reprinted from Byte, issue 91981, pp. 58-68: online from URL: Ficheiro\
+N\'e3o conclu\'edda: Wadlow, T. A. (1981). The Xerox Alto Computer. Reprinted from Byte, issue 91981, pp. 58-68: online from URL: {\field{\*\fldinst{HYPERLINK "https://guidebookgallery.org/articles/thexeroxaltocomputer"}}{\fldrslt https://guidebookgallery.org/articles/thexeroxaltocomputer}}\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+Weizer, N. (1981). \'93A History of Operating Systems.\'94 in DATAMATION; ISSN 0011-6963; USA; DA. 1981; vol. 27; no. 1; pp. 118-126; Online URL: {\field{\*\fldinst{HYPERLINK "http://bitsavers.org/magazines/Datamation/198101.pdf"}}{\fldrslt http://bitsavers.org/magazines/Datamation/198101.pdf}}\
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 Vaz, P. (2019). Configura\'e7\'f5es Acesso VPN: MS-Windows e macOS. Servi\'e7os de Inform\'e1tica/Escola Superior de Tecnologia e Gest\'e3o/IPVC. Online URL: {\field{\*\fldinst{HYPERLINK "http://help.ipvc.pt/doku.php?id=si_estg"}}{\fldrslt http://help.ipvc.pt/doku.php?id=si_estg}}\
+\
+Zagalo, N. (2013). Videojogos em Portugal - Hist\'f3ria, Tecnologia e Arte. FCA.\
+\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+\
+}
