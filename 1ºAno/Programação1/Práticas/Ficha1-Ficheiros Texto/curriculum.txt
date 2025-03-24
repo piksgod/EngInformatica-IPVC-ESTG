@@ -1,0 +1,7 @@
+Nome: Diogo
+Número de Aluno: 24934
+Nome do Curso: Eng informatica
+Disciplina: Programacao
+Disciplina: Sistemas operativos
+Disciplina: Ingles 
+Disciplina: Matematica discreta
