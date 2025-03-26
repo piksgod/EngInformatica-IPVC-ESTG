@@ -29,7 +29,7 @@ int saveEmployee(Employee e){
 /*EXERCICIO 2- Listar a informação – desenvolver a função listaInfo() que escreve para o ecrã toda a
 informação existente.*/
 
-int listaInfo(){
+int listaInfo(Employee e){
 
     char header1[] = "Number";
     char header2[] = "Name";
@@ -46,7 +46,7 @@ int listaInfo(){
 /*EXERCICIO 3 - Ordenar por nome – Desenvolver a função ordenaNome(), que, recorrendo ao algoritmo
 bubbleSort ordena alfabeticamente os colaboradores pelo nome. */
 
-void ordenaNome() {
+void ordenaNome(Employee employees[], int nrEmployees) {
     for (int i = 0; i < nrEmployees - 1; i++) {
         for (int j = 0; j < nrEmployees - i - 1; j++) {
             if (strcmp(employees[j].name, employees[j + 1].name) > 0) {
@@ -61,7 +61,7 @@ void ordenaNome() {
 /*EXERCICIO 4- Ordenar por NIF - Desenvolver a função ordenaNIF(), que, recorrendo ao algoritmo
 selectionSort, deverá ordenar a informação sobre o funcionários por ordem crescente do
 NIF*/
-void ordenaNIF() {
+void ordenaNIF(Employee employees[], int nrEmployees) {
     for (int i = 0; i < nrEmployees - 1; i++) {
         int min = i;
         for (int j = i + 1; j < nrEmployees; j++) {
@@ -108,4 +108,107 @@ int salvarColaboradoresTXT() {
     }
     fclose(txtFile);
     return nrEmployees;
+}
+
+/*EXERCICIO 6- Implemente a função OrdenaSalario() que recorrendo ao algoritmo de ordenação 
+insertionSort, ordena o array por ordem decrescente do valor do salario. */
+
+void ordenaSalario(Employee employees[], int nrEmployees){
+    Employee temp;
+    for(int i=0;i<nrEmployees; i++){
+    
+        temp = employees[i];
+        int j = i-1;
+        while(j >= 0 && employees[j].salary<temp.salary)
+        {
+            employees[j+1] = employees[i];
+            j--;
+
+        }
+        employees[j+1] = temp;
+
+    }
+    return nrEmployees;
+
+}
+
+/*EXERCICIO 7- Verificar se existe nome – Desenvolver a função existeNome(), que recorrendo ao 
+algoritmo de pesquisa binária, devolve a posição onde a informação sobre um  
+determinado funcionário, dado o nome, se encontra. */
+
+int existeNome(char *name){
+
+    //primeiro vamos ordenar por nomes
+
+    ordenaNome(employees,nrEmployees);
+    int low = 0;
+    int high = nrEmployees -1;
+    while(low <= high)
+    {
+        int mid = (low+high)/2;
+        if(strcmp(employees[mid].name,name)==0){
+            return mid;
+        }
+        else if(strcmp(employees[mid].name,name)<0){
+            low = mid +1;
+        }
+        else{
+            high = mid - 1;
+        }
+    }
+
+
+
+}
+/*EXERCICIO 8*/
+int existeNIF(unsigned long nif){
+    ordenaNIF(employees,nrEmployees);
+    int low = 0;
+    int high = nrEmployees -1;
+    while(low <= high)
+    {
+        int mid = (low+high)/2;
+        if(strcmp(employees[mid].nif,nif)==0){
+            return mid;
+        }
+        else if(strcmp(employees[mid].nif,nif)<0){
+            low = mid +1;
+        }
+        else{
+            high = mid - 1;
+        }
+    }
+    return -1;
+
+}
+
+/*EXERCICIO 9*/
+int existNum(int num){
+
+for(int i=0;i<nrEmployees;i++){
+    if(employees[i].number == num){
+        return i;
+    }
+}
+return -1;
+}
+
+/*EXERCICIO 10*/
+void alteraValores(int novoSalario){
+ //completar
+}
+
+/*EXERCICIO 11-Listar para o ecrã os funcionários que têm um salário acima de um determinado valor, 
+introduzido pelo utilizador.*/
+
+void listaFuncionarios(int salario){
+
+    ordenaSalario(employees,nrEmployees);
+
+    for(int i=0;i<nrEmployees;i++){
+        if(employees[i].salary>salario)
+        {
+            printf("O %s tem salário acima de %d.\n",employees[i].name,salario);
+        }
+    }
 }
