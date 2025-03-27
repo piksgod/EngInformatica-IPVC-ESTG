@@ -19,3 +19,8 @@ void ordenaNome(Employee employees[], int nrEmployees);
 void ordenaNIF(Employee employees[], int nrEmployees);
 
 int salvarColaboradoresTXT();
+
+void ordenaSalario(Employee employees[], int nrEmployees);
+
+int existeNome(char *name);
+
