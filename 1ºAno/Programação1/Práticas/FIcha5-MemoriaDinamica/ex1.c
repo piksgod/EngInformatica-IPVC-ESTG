@@ -4,6 +4,8 @@
 
 int main(){
 
+    
+
     char str1[100],str2[100];
 
     printf("Escreva a primeira string:\n");
