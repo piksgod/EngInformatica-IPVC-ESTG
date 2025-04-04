@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "EX4.C": "cpp"
+        "EX4.C": "cpp",
+        "string.h": "c"
     }
 }
