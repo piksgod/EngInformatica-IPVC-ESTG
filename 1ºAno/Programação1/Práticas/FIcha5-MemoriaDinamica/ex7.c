@@ -12,9 +12,14 @@ typedef struct {
 int main(){
     Artigo a;
     int contador=0;
+    
 
     printf("Diga o número do artigo: ");
     scanf("%d",&a.num);
+    pritnf("Diga o preço do produto: ");
+    scanf("%.2f",&a.preco);
+    printf("Diga o nome do produto: ");
+    
     while(1){
         if(a.nome=='\0')
         break;
