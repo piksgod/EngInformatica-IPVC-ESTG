@@ -1,0 +1,10 @@
+Nome:Ozzy
+Raça: york
+Idade:12
+Nome:Minnie
+Raça: York
+Idade:13
+Nome:BIggie
+Raça: York
+Idade:24
+Nome:END
