@@ -5,7 +5,9 @@
 //----------------------EXERCICIO 1a)-------------------------
 
 /*
-void writeCanoistas(char canoistas[250][100]){
+//devolve -1 se der erro,1 se ok
+int writeCanoistas(char *canoistas[][],int n){
+
     FILE *fp = NULL;
     fp = fopen("canoistas2018.txt","w");
     if(fp==NULL){
@@ -13,14 +15,14 @@ void writeCanoistas(char canoistas[250][100]){
         exit(-1);
         }
     
-    for(int i=0;i<250;i++){
-        if(canoistas[i][0]!='\0'){
+    for(int i=0;i<n;i++){
+        
             fprintf(fp,"%s\n",canoistas[i]);
 
-        }
+        
     }
     fclose(fp);
-    return 0;
+    return 1;
 
 }
 
@@ -30,12 +32,12 @@ void writeCanoistas(char canoistas[250][100]){
 //----------------------EXERCICIO 1b)-------------------------
 
 /*
-void ordenaCanoistas(char canoistas[250][100]){
+void ordenaCanoistas(char *canoistas[][],int n){
     int i=0,j=0;
     char temp[100];
 
-    for(i=0;i<250-1;i++){
-        for(j=0;j<250-i-1;j++){
+    for(i=0;i<n-1;i++){
+        for(j=0;j<n-i-1;j++){
             if(strcmp(canoistas[j],canoistas[j+1])>0){
                 strcpy(temp,canoistas[j]);
                 strcpy(canoistas[j],canoistas[j+1]);
@@ -111,7 +113,7 @@ int main(){
 
    
 }
-//----------------------FIM EXERCICIO 2a)-------------------------*/
+//----------------------FIM EXERCICIO 2b)-------------------------*/
 
 //----------------------EXERCICIO 2c)-------------------------
 /*
