@@ -124,5 +124,42 @@ int main(){
 
 
 //----------------------EXERCICIO 3-------------------------
+/*
+int pesquisaBin(float custos[],int tam,float val){
+int inicio=0,meio = 0,fim=tam-1;
+
+while(inicio<=fim){
+
+    meio = (fim + inicio)/2;
+    if(val == custos[meio]){
+        return (meio);
+    } 
+    if(val < custos[meio]){
+        fim = meio - 1;
+    }
+    else{
+        inicio = meio +1;
+    }
+
+}
+return -1;
+}
+
+int main(){
+    float custos[1500];
+}
+---------------------FIM EXERCICIO 3-------------------*/
 
 
+
+//----------------------EXERCICIO 4-------------------------
+/*
+int seq(int n){
+    if(n <=0){
+        return 0;
+    }
+    return 2*n*n + seq(n-1);
+}
+
+
+---------------------FIM EXERCICIO 4-------------------*/
