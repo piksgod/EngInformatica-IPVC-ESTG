@@ -239,10 +239,75 @@ int numeroColab(){
 }
 
 float mediaSal(){
-    float media;
-    int soma = somaSalRecursivo();
-    
-    media = soma / numeroColab();
+    if(lista == NULL){
+        return 0;
+    }
+    float soma = 0;
+    int contador = 0;
+    ELEMENTO *aux = lista;
+    while(aux != NULL){
+        soma += aux->colaborador.salario;
+        contador++;
+        aux = aux->next;
+    }
+    return soma / contador;
 
-    return media;
+}
+
+int removerColab(char NIF[]){
+
+if(lista == NULL){
+    return 0;
+}
+ELEMENTO *aux = lista;
+ELEMENTO *anterior = NULL;
+while(aux != NULL && strcmp(aux->colaborador.NIF,NIF)!=0){
+    anterior = aux;
+    aux = aux->next;
+
+}
+if(aux == NULL){
+    printf("Colaborador com NIF %d não encontrado!\n",NIF);
+    return 0;
+    
+}
+if(anterior == NULL){
+    lista = aux->next;
+}else{
+    anterior->next = aux->next;
+}
+free(aux);
+return 1;
+
+
+}
+
+int listaColabSalarioSuperior(float salario){
+
+    if(lista == NULL){
+        return 0;
+    }
+    ELEMENTO *aux = lista;
+    int contador = 0;
+    while(aux != NULL){
+        if(aux->colaborador.salario > salario){
+            listaColaborador(aux->colaborador.numero);
+        }else {
+            
+        }
+    }
+
+}
+
+int aumentarSalario(float percentual){
+    if(lista == NULL){
+        return 0;
+    }
+    ELEMENTO *aux = lista;
+    while(aux != NULL){
+        aux->colaborador.salario += aux->colaborador.salario * percentual /100;
+        aux = aux->next;
+
+    }
+    return 1;
 }
